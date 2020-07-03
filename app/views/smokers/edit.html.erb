@@ -13,7 +13,7 @@
       </dt>
       <dd>
         <div class="form_group">
-          <%= f. file_field :image, class:"upload_image initial-height" %>
+          <%= f.file_field :image, class:"upload_image initial-height" %>
         </div>
       </dd>
     </dl>
@@ -27,8 +27,18 @@
         </div>
       </dd>
     </dl>
+    <dl>
+      <dt>
+        <p>一言</p>
+      </dt>
+      <dd>
+        <div class="form_group">
+          <%= f.text_area :word, :placeholder => "何か一言お願いします", class:"input_word initial-height" %>
+        </div>
+      </dd>
+    </dl>
     <div class="form_group">
-      <%= f.submit "送信", data: { confirm: "新規投稿しますか？"}, class:"btn btn-dark btn-lg"  %>
+      <%= f.submit "送信", data: { confirm: "更新しますか？"}, class:"btn btn-dark btn-lg"  %>
     </div>
     <% end %>
   </div>

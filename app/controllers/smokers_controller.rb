@@ -34,7 +34,6 @@ class SmokersController < ApplicationController
 
   private
   def smoker_params
-    binding.pry
-    params.require(:smoker).permit(:name,:image)
+    params.require(:smoker).permit(:name,:word,:image)
   end
 end

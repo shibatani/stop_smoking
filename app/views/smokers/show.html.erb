@@ -10,7 +10,11 @@
   </div>
 
   <div class="balloon">
-    <h5>よろしくお願いします。</h5>
+    <% if @smoker.word? %>
+      <%= @smoker.word %>
+    <% else %>
+      <h6>よろしくお願いします。</h6>
+    <% end %>
   </div>
 
   <div class="btn_group">
