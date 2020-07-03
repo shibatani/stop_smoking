@@ -1,0 +1,35 @@
+<%= stylesheet_link_tag "_smokers", :media => "all" %>
+
+<div class="register_smoker">
+  <div class="logo_img">
+    <img src="/assets/禁煙ランキング.jpg">
+  </div>
+
+  <div class="form_groups">
+    <%= form_with model: @smoker, local: true do |f| %>
+    <dl>
+      <dt>
+        <p>プロフィール画像</p>
+      </dt>
+      <dd>
+        <div class="form_group">
+          <%= f. file_field :image, class:"upload_image initial-height" %>
+        </div>
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <p>名前</p>
+      </dt>
+      <dd>
+        <div class="form_group">
+          <%= f.text_area :name, :placeholder => "名前を入力して下さい", class:"input_name initial-height" %>
+        </div>
+      </dd>
+    </dl>
+    <div class="form_group">
+      <%= f.submit "送信", data: { confirm: "新規投稿しますか？"}, class:"btn btn-dark btn-lg"  %>
+    </div>
+    <% end %>
+  </div>
+</div>

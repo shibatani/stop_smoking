@@ -1,0 +1,39 @@
+<%= stylesheet_link_tag "_smokers", :media => "all" %>
+
+<div class="smoker_ranking">
+  <div class="logo_img">
+  <img src="/assets/禁煙ランキング.jpg">
+  </div>
+
+  <div class="table_group">
+    <table class="table table-striped">
+      <thead class="table-head text-white bg-dark">
+        <tr>
+          <th width= 40%>順位</th>
+          <th width= 40%>ユーザー名</th>
+          <th width= 20%>継続日数</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @smokers.each.with_index(1) do |smoker, i|%>
+        <tr class="bg-white">
+          <td>
+            <%= i %>
+          </td>
+          <td>
+            <% if smoker.image? %>
+              <%= image_tag smoker.image.url, class: "icon" %>
+            <% else %>
+            <% end %>
+            <%= link_to smoker.name, smoker_path(smoker.id)%>
+          </td>
+          <td>
+            <% created_date = smoker.created_at.to_date %>
+            <%= smoker.running_days(created_date) %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

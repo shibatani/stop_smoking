@@ -1,0 +1,114 @@
+.register_smoker {
+
+  .form_groups{
+  max-width: 667px;
+  margin-left: auto;
+  margin-right: auto;
+
+    p {
+    color: #fff
+    }
+
+    .form_group {
+      .input_name {
+      width: 100%;
+      height: 60px;
+      padding: 15px;
+      font-size: 1.2rem;
+      border: 3px solid #BBBBBB;
+      border-radius:999px;
+      }
+
+      .input_word {
+      width: 100%;
+      height: 60px;
+      padding: 15px;
+      font-size: 1.2rem;
+      border: 3px solid #BBBBBB;
+      border-radius:999px;
+      }
+
+      .btn {
+      width: 667px;
+      display: inline-block;
+      margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.smoker_ranking {
+
+  .table_group {
+  max-width: 700px;
+  margin: 0 auto;
+
+    .icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-image: url(?);
+    background-position: center center;
+    }
+  }
+}
+
+.logo_img {
+  text-align: center;
+
+    img {
+    width: 20%;
+    height: 20%;
+    margin: 0 auto;
+    }
+  }
+
+.smoker_profile {
+max-width: 667px;
+margin-left: auto;
+margin-right: auto;
+
+  .show_icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-image: url(?);
+    background-position: center center;
+    }
+
+  .smoker_name {
+  margin-left: 10px;
+  display: inline-block;
+  }
+
+  .balloon {
+    position: relative;
+    background: #fff;
+    padding: 10px;
+    margin-top: 25px;
+    border-radius: 10px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 590px;
+      bottom: 50px;
+      left: 0px;
+      width: 0px;
+      height: 0px;
+      margin: auto;
+      border-style: solid;
+      border-color: transparent transparent #fff transparent;
+      border-width: 0 15px 15px 15px;
+    }
+  }
+
+  .btn_group {
+    text-align: center;
+    .btn {
+      width: 300px;
+      display: inline-block;
+      margin-top: 20px;
+      }
+  }
+}
