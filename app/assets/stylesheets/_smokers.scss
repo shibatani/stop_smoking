@@ -47,8 +47,11 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-image: url(?);
     background-position: center center;
+    }
+
+    .fa {
+    font-size: 30px;
     }
   }
 }
@@ -76,6 +79,10 @@ margin-right: auto;
     background-position: center center;
     }
 
+  .fa {
+  font-size: 80px;
+  }
+
   .smoker_name {
   margin-left: 10px;
   display: inline-block;
@@ -84,7 +91,7 @@ margin-right: auto;
   .balloon {
     position: relative;
     background: #fff;
-    padding: 10px;
+    padding: 15px;
     margin-top: 25px;
     border-radius: 10px;
 
@@ -92,7 +99,7 @@ margin-right: auto;
       content: "";
       position: absolute;
       right: 590px;
-      bottom: 45px;
+      bottom: 53px;
       left: 0px;
       width: 0px;
       height: 0px;
