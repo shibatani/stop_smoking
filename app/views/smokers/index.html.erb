@@ -15,10 +15,32 @@
         </tr>
       </thead>
       <tbody>
+        <% last_running_days = 0 %>
+        <% last_rank_number = 0  %>
         <% @smokers.each.with_index(1) do |smoker, i|%>
         <tr class="bg-white">
           <td>
-            <%= i %>
+            <% #継続日数の計算 %>
+            <% created_date = smoker.created_at.to_date %>
+            <% today = Date.current %>
+            <% remain = (today - created_date).to_i %>
+
+            <% #同率順位の計算 %>
+            <% if i != 1 %>
+              <% if last_running_days == remain %>
+                <% rank_number = last_rank_number %>
+                <%= rank_number %>
+              <% else %>
+                <% last_rank_number += 1 %>
+                <% rank_number = last_rank_number %>
+                <%= rank_number %>
+              <% end %>
+            <% else %>
+              <% rank_number = i %>
+              <%= rank_number %>
+              <% last_rank_number += i %>
+            <% end %>
+
           </td>
           <td>
             <% if smoker.image? %>
@@ -29,8 +51,8 @@
             <%= link_to smoker.name, smoker_path(smoker.id)%>
           </td>
           <td>
-            <% created_date = smoker.created_at.to_date %>
-            <%= smoker.running_days(created_date) %>
+            <%= remain %>
+            <% last_running_days = remain  %>
           </td>
         </tr>
         <% end %>

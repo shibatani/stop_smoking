@@ -10,7 +10,13 @@ class SmokersController < ApplicationController
   end
 
   def create
-    Smoker.create(smoker_params)
+    @smoker = Smoker.create(smoker_params)
+    if @smoker.save
+      redirect_to smokers_path, notice: "新規登録しました。"
+    else
+      flash.now[:alert] = "入力に不備があります。"
+      render :new
+    end
   end
 
   def edit
@@ -18,8 +24,15 @@ class SmokersController < ApplicationController
   end
 
   def update
-    smoker = Smoker.find(params[:id])
-    smoker.update(smoker_params)
+    @smoker = Smoker.find(params[:id])
+    @smoker.update(smoker_params)
+    if @smoker.update(smoker_params)
+      redirect_to smokers_path, notice: "更新しました。"
+    else
+      flash.now[:alert] = "入力に不備があります。"
+      render :edit
+    end
+
   end
 
   def destroy
@@ -34,6 +47,7 @@ class SmokersController < ApplicationController
 
   private
   def smoker_params
-    params.require(:smoker).permit(:name,:word,:image)
+
+    params.require(:smoker).permit(:name,:word,:days,:image)
   end
 end
