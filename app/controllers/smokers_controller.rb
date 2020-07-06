@@ -2,7 +2,7 @@ class SmokersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @smokers = Smoker.all
+    @smokers = Smoker.all.order('created_at')
   end
 
   def new

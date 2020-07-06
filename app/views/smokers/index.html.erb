@@ -17,6 +17,7 @@
       <tbody>
         <% last_running_days = 0 %>
         <% last_rank_number = 0  %>
+        <% rank_number = 0 %>
         <% @smokers.each.with_index(1) do |smoker, i|%>
         <tr class="bg-white">
           <td>
@@ -28,19 +29,29 @@
             <% #同率順位の計算 %>
             <% if i != 1 %>
               <% if last_running_days == remain %>
-                <% rank_number = last_rank_number %>
-                <%= rank_number %>
+                <% if rank_number == 2 %>
+                  <img src="/assets/王冠 銀.jpeg">
+                <% elsif rank_number == 3 %>
+                  <img src="/assets/王冠 銅.jpeg">
+                <% else %>
+                  <%= rank_number %>
+                <% end %>
               <% else %>
                 <% last_rank_number += 1 %>
-                <% rank_number = last_rank_number %>
-                <%= rank_number %>
+                <% rank_number += 1 %>
+                <% if rank_number == 2 %>
+                  <img src="/assets/王冠 銀.jpeg">
+                <% elsif rank_number == 3 %>
+                  <img src="/assets/王冠 銅.jpeg">
+                <% else %>
+                  <%= rank_number %>
+                <% end %>
               <% end %>
             <% else %>
+              <% last_rank_number = i %>
               <% rank_number = i %>
-              <%= rank_number %>
-              <% last_rank_number += i %>
+              <img src="/assets/王冠 金.jpeg">
             <% end %>
-
           </td>
           <td>
             <% if smoker.image? %>
@@ -51,7 +62,8 @@
             <%= link_to smoker.name, smoker_path(smoker.id)%>
           </td>
           <td>
-            <%= remain %>
+            <% smoker.days = remain %>
+            <%= smoker.days %>
             <% last_running_days = remain  %>
           </td>
         </tr>
