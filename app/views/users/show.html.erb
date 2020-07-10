@@ -1,0 +1,89 @@
+<%= stylesheet_link_tag "_users", :media => "all" %>
+
+<div class="smoker_profile">
+  <% if @user.image? %>
+  <%= image_tag @user.image.url, class: "show_icon" %>
+  <% else %>
+  <i class="far fa-user-circle show_icon"></i>
+  <% end %>
+  <div class="smoker_name">
+    <strong><%= @user.name %></strong>
+  </div>
+
+  <div class="balloon">
+    <% if @user.word? %>
+    <%= @user.word %>
+    <% else %>
+    <h6>よろしくお願いします。</h6>
+    <% end %>
+  </div>
+  
+  <div class="message">
+    <% if @user.days.present? && @user.boxes.present? %>
+      あなたは<strong>タバコ</strong>を<strong><%= @user.days %></strong>日に1回,<strong><%= @user.boxes %></strong>箱買いに行っていました。
+    <% else %>
+      タバコ購入頻度についてのデータがありません。
+    <% end %>
+  </div>
+
+  <div class="start_date mb-2" style="font-size: 0.8rem;"><i class="far fa-calendar-alt mr-2"></i><%= @user.created_at.to_date %>から禁煙ランキングを利用しています</div>
+
+  <hr>
+  <div class="saved_money">
+    <div class="form-inline mb-2">
+      <div class="col-4 p-0">
+        <i class="far fa-money-bill-alt fa-2x"></i>
+      </div>
+      <% if @user.days.present? && @user.boxes.present? %>
+        <% created_date = @user.created_at.to_date %>
+        <% today = Date.current %>
+        <% remain = (today - created_date).to_i %>
+        <% days = remain / @user.days %>
+        <% saved_money = @user.boxes * 500 * days %>
+        貯金した金額:<h1><%= saved_money %></h1>円
+      <% else %>
+        貯金した金額:<h1>0</h1>円
+      <% end %>
+      <button class="btn btn-sm" data-target="#rankHourModal" data-toggle="modal" type="button">
+        <launch>
+          <span class="badge badge-pill badge-secondary">
+            ?
+          </span>
+        </launch>
+      </button>
+    </div>
+  </div>
+  <hr>
+  <div class="count_cigarettes">
+    <div class="form-inline mb-2">
+      <div class="col-4 p-0">
+        <i class="fas fa-smoking fa-2x"></i>
+      </div>
+      <% if @user.days.present? && @user.boxes.present? %>
+        <% cigarettes_day = @user.boxes * 20 / @user.days %>
+        <% cigarettes = remain * cigarettes_day %>
+        吸わなかったタバコ:<h1><%= cigarettes %></h1>本
+      <% else %>
+        吸わなかったタバコ:<h1>0</h1>本
+      <% end %>
+      <button class="btn btn-sm" data-target="#rankHourModal" data-toggle="modal" type="button">
+        <launch>
+          <span class="badge badge-pill badge-secondary">
+            ?
+          </span>
+        </launch>
+      </button>
+    </div>
+  </div>
+  <hr>
+
+  <% if user_signed_in? && current_user.id == @user.id %>
+
+  <div class="btn_group">
+    <%= link_to '削除', user_path(@user), method: :delete, data: { confirm: "削除しますか？"}, class:"btn"  %>
+
+    <%= link_to '編集', edit_user_path(@user), class:"btn"  %>
+  </div>
+  <% end%>
+
+</div>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'smokers#index'
-  resources :smokers
+  root 'damages#index'
+  resources :users
+  resources :dameges
 end
