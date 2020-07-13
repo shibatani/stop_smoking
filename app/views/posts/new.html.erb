@@ -1,0 +1,16 @@
+<%= stylesheet_link_tag "_posts", :media => "all" %>
+
+<div class="post">
+  <div class="form_groups">
+    <div class="form_group">
+      <%= form_for @post do |f| %>
+      <p>
+        <%= f.label :body,"ツイート" %>
+        <%= f.text_area :body, class:"input_body initial-height" %>
+      </p>
+      <%= f.submit "送信", data: { confirm: "更新しますか？"}, class:"btn btn-dark btn-lg"  %>
+    </div>
+    <% end %>
+  </div>
+</div>
+

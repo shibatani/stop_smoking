@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  validates :name, presence: true #追記
-  validates :word, length: { maximum: 200 } #追記
+  validates :name, presence: true 
+  validates :word, length: { maximum: 200 } 
+
+  has_many :posts
+  has_many :favorites
+  has_many :favorite_posts, through: :favorites, source: :post
 end

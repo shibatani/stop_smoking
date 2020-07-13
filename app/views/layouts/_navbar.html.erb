@@ -10,6 +10,12 @@
     <li class="nav-item">
       <a class="nav-item nav-link active ml-4 h6" href="/users">禁煙ランキング</a>
     </li>
+    <li class="nav-item">
+      <a class="nav-item nav-link active ml-4 h6" href="/posts">投稿一覧</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-item nav-link active ml-4 h6" href="/posts/new">新規投稿</a>
+    </li>
     <% if user_signed_in? %>
     <li class="nav-item">
         <%= link_to "マイページ", user_path(current_user), class: "nav-item nav-link active ml-4 h6"%>

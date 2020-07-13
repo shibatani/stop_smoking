@@ -20,9 +20,9 @@
   
   <div class="message">
     <% if @user.days.present? && @user.boxes.present? %>
-      あなたは<strong>タバコ</strong>を<strong><%= @user.days %></strong>日に1回,<strong><%= @user.boxes %></strong>箱買いに行っていました。
+    あなたは<strong>タバコ</strong>を<strong><%= @user.days %></strong>日に1回,<strong><%= @user.boxes %></strong>箱買いに行っていました。
     <% else %>
-      タバコ購入頻度についてのデータがありません。
+    タバコ購入頻度についてのデータがありません。
     <% end %>
   </div>
 
@@ -35,14 +35,14 @@
         <i class="far fa-money-bill-alt fa-2x"></i>
       </div>
       <% if @user.days.present? && @user.boxes.present? %>
-        <% created_date = @user.created_at.to_date %>
-        <% today = Date.current %>
-        <% remain = (today - created_date).to_i %>
-        <% days = remain / @user.days %>
-        <% saved_money = @user.boxes * 500 * days %>
-        貯金した金額:<h1><%= saved_money %></h1>円
+      <% created_date = @user.created_at.to_date %>
+      <% today = Date.current %>
+      <% remain = (today - created_date).to_i %>
+      <% days = remain / @user.days %>
+      <% saved_money = @user.boxes * 500 * days %>
+      貯金した金額:<h1><%= saved_money %></h1>円
       <% else %>
-        貯金した金額:<h1>0</h1>円
+      貯金した金額:<h1>0</h1>円
       <% end %>
       <button class="btn btn-sm" data-target="#rankHourModal" data-toggle="modal" type="button">
         <launch>
@@ -60,11 +60,11 @@
         <i class="fas fa-smoking fa-2x"></i>
       </div>
       <% if @user.days.present? && @user.boxes.present? %>
-        <% cigarettes_day = @user.boxes * 20 / @user.days %>
-        <% cigarettes = remain * cigarettes_day %>
-        吸わなかったタバコ:<h1><%= cigarettes %></h1>本
+      <% cigarettes_day = @user.boxes * 20 / @user.days %>
+      <% cigarettes = remain * cigarettes_day %>
+      吸わなかったタバコ:<h1><%= cigarettes %></h1>本
       <% else %>
-        吸わなかったタバコ:<h1>0</h1>本
+      吸わなかったタバコ:<h1>0</h1>本
       <% end %>
       <button class="btn btn-sm" data-target="#rankHourModal" data-toggle="modal" type="button">
         <launch>
@@ -85,5 +85,15 @@
     <%= link_to '編集', edit_user_path(@user), class:"btn"  %>
   </div>
   <% end%>
+
+  <% @posts.each do |post| %>
+  <hr>
+  <p><span>ツイート内容: </span><%=link_to post.body, post_path(post.id) %></p>
+  <% end %>
+
+  <% @favorite_posts.each do |post| %>
+  <hr>
+  <p><span>ファボツイート内容: </span><%=link_to post.body, post_path(post.id) %></p>
+  <% end %>
 
 </div>
