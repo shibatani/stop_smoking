@@ -18,6 +18,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @user = @post.user
+    @comments = @post.comments
+    @comment = @post.comments.build
   end
 
   def destroy
@@ -27,7 +29,7 @@ class PostsController < ApplicationController
   end
 
   private
-    def post_params
-      params.require(:post).permit(:body)
-    end
+  def post_params
+    params.require(:post).permit(:body)
+  end
 end
