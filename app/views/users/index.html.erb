@@ -1,10 +1,6 @@
-<%= stylesheet_link_tag "_smokers", :media => "all" %>
+<%= stylesheet_link_tag "_users", :media => "all" %>
 
 <div class="smoker_ranking">
-  <div class="logo_img">
-  <img src="/assets/禁煙ランキング.jpg">
-  </div>
-
   <div class="table_group">
     <table class="table table-striped">
       <thead class="table-head text-white bg-dark">
@@ -18,18 +14,20 @@
         <% last_running_days = 0 %>
         <% last_rank_number = 0  %>
         <% rank_number = 0 %>
-        <% @smokers.each.with_index(1) do |smoker, i|%>
+        <% @users.each.with_index(1) do |user, i|%>
         <tr class="bg-white">
           <td>
             <% #継続日数の計算 %>
-            <% created_date = smoker.created_at.to_date %>
+            <% created_date = user.created_at.to_date %>
             <% today = Date.current %>
             <% remain = (today - created_date).to_i %>
-
+            
             <% #同率順位の計算 %>
             <% if i != 1 %>
               <% if last_running_days == remain %>
-                <% if rank_number == 2 %>
+                <% if rank_number == 1 %>
+                  <img src="/assets/王冠 金.jpeg">
+                <% elsif rank_number == 2 %>
                   <img src="/assets/王冠 銀.jpeg">
                 <% elsif rank_number == 3 %>
                   <img src="/assets/王冠 銅.jpeg">
@@ -54,16 +52,15 @@
             <% end %>
           </td>
           <td>
-            <% if smoker.image? %>
-              <%= image_tag smoker.image.url, class: "icon" %>
+            <% if user.image? %>
+              <%= image_tag user.image.url, class: "icon" %>
             <% else %>
-              <i class="fa fa-user-circle" aria-hidden="true"></i>
+              <i class="far fa-user-circle icon"></i>
             <% end %>
-            <%= link_to smoker.name, smoker_path(smoker.id)%>
+            <%= link_to user.name, user_path(user.id)%>
           </td>
           <td>
-            <% smoker.days = remain %>
-            <%= smoker.days %>
+            <%= remain %>
             <% last_running_days = remain  %>
           </td>
         </tr>

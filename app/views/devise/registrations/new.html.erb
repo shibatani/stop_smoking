@@ -1,0 +1,67 @@
+<%= stylesheet_link_tag "_users", :media => "all" %>
+
+<div class="register_smoker">
+  <div class="form_groups">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <dl>
+      <dt>
+        <p>名前</p>
+      </dt>
+      <dd>
+        <div class="form_group">
+          <%= f.text_area :name, :placeholder => "名前を入力して下さい", class:"input_name initial-height" %>
+        </div>
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <p>メールアドレス</p>
+      </dt>
+      <dd>
+        <div class="form_group">
+          <%= f.text_area :email, :placeholder => "メールアドレスを入力してください",　autofocus: true, autocomplete: "email", class:"input_name initial-height" %>
+        </div>
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <p>購入頻度</p>
+      </dt>
+      <dd>
+        <div class="form_group" style="display:inline-flex">
+          <%= f.text_area :days, :placeholder => "何日に1回",　autofocus: true, autocomplete: "email", class:"input_name initial-height" %>
+          <%= f.text_area :boxes, :placeholder => "何箱",　autofocus: true, autocomplete: "email", class:"input_name initial-height" %>
+        </div>
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <p>パスワード</p>
+      </dt>
+      <dd>
+        <div class="form_group">
+          <%= f.text_area :password, :placeholder => "パスワードを入力してください", autocomplete: "new-password", class:"input_name initial-height" %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+        </div>
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <p>パスワード確認</p>
+      </dt>
+      <dd>
+        <div class="form_group">
+          <%= f.text_area :password_confirmation, :placeholder => "パスワードを入力してください", autocomplete: "new-password", class:"input_name initial-height" %>
+        </div>
+      </dd>
+    </dl>
+    <div class="form_group">
+      <%= f.submit "送信", data: { confirm: "更新しますか？"}, class:"btn btn-dark btn-lg"  %>
+    </div>
+    <% end %>
+  </div>
+</div>
