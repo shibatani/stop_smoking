@@ -2,18 +2,20 @@
 
 <div class="post_show">
   <div class="card border-none mb-3 mx-auto">
-    <div class="bg-transparent ml-2 mt-2">
-      <div class="form-inline mb-2">
-        <strong>
-          <% if @post.user.image? %>
-          <%= image_tag @post.user.image.url, class: "icon" %> <%= link_to @post.user.name, user_path(@post.user.id) %>
-          <% else %>
-          <i class="far fa-user-circle icon"></i> <%= link_to @post.user.name, user_path(@post.user.id) %>
-          <% end %>
-        </strong>
-      </div>
-      <div class="post_content ml-3">
-        <p><%= @post.body %></p>
+    <div class="origin_post">
+      <div class="bg-transparent ml-2 mt-2">
+        <div class="form-inline mb-2">
+          <strong>
+            <% if @post.user.image? %>
+            <%= image_tag @post.user.image.url, class: "icon" %> <%= link_to @post.user.name, user_path(@post.user.id) %>
+            <% else %>
+            <i class="far fa-user-circle icon"></i> <%= link_to @post.user.name, user_path(@post.user.id) %>
+            <% end %>
+          </strong>
+        </div>
+        <div class="post_content ml-3">
+          <p><%= @post.body %></p>
+        </div>
       </div>
     </div>
     
@@ -43,20 +45,25 @@
       </div>
     </div>
 
-    <% @comments.each do |comment| %>
-      <strong>
-        <% if @post.user.image? %>
-          <%= image_tag @post.user.image.url, class: "icon" %> <%= link_to @post.user.name, user_path(@post.user.id) %>
-        <% else %>
-          <i class="far fa-user-circle icon"></i> <%= link_to @post.user.name, user_path(@post.user.id) %>
-        <% end %>
-      </strong>
-      <% if comment.body? %>
+    <div class="comment">
+      <div class="bg-transparent ml-2">
+        <% @post.comments.each do |comment| %>
+        <hr>
+        <strong>
+          <% if comment.user.image? %>
+          <%= image_tag comment.user.image.url, class: "icon" %> <%= link_to comment.user.name, user_path(comment.user.id) %>
+          <% else %>
+          <i class="far fa-user-circle icon"></i> <%= link_to comment.user.name, user_path(comment.user.id) %>
+          <% end %>
+        </strong>
+        <% if comment.body? %>
         <div class="post_content ml-3">
           <p><%= comment.body %></p>
         </div>
-      <% end %>
-    <% end %>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
 
   <div class="form_groups">
