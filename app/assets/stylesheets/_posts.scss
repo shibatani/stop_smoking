@@ -31,6 +31,10 @@
   .card {
   max-width: 350px;
   box-shadow: 2px 2px 4px gray;
+  transition:transform 0.3s;
+    &:hover {
+    transform:scale(1.05);
+    }
     .icon {
       width: 40px;
       height: 40px;
