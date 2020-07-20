@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get 'favorites/destroy'
   devise_for :users
   root 'damages#index'
-  resources :users 
+  resources :users do 
+    get :search, on: :collection
+  end
   resources :dameges
   resources :posts do 
     resource :favorites, only: [:create, :destroy]
