@@ -32,6 +32,14 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def search
+    if params[:name].present?
+      @users = User.where('name LIKE ?', "%#{params[:name]}%")
+    else
+      @users = User.all
+    end
+  end
+
   private
   def user_params
     params.require(:user).permit(:name,:word,:image,:days,:boxes)
