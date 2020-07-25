@@ -124,5 +124,23 @@
         border-radius: 50%;
       }
     }
+
+    .form {
+      font-size: 15px;
+      box-sizing: border-box;
+      padding: 1em;
+      transition: 0.3s;
+      letter-spacing: 1px;
+      width: 80%;
+      border: none;
+      border-bottom: 2px solid #1b2538;
+      background: transparent;
+      margin-left: 10px;
+
+      &:focus {
+        border-bottom: 2px solid #9ec34b;
+        outline: none;
+      }
+    }
   }
 }
