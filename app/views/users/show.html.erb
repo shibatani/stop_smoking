@@ -44,13 +44,6 @@
       <% else %>
       貯金した金額:<h1>0</h1>円
       <% end %>
-      <button class="btn btn-sm" data-target="#rankHourModal" data-toggle="modal" type="button">
-        <launch>
-          <span class="badge badge-pill badge-secondary">
-            ?
-          </span>
-        </launch>
-      </button>
     </div>
   </div>
   <hr>
@@ -66,16 +59,38 @@
       <% else %>
       吸わなかったタバコ:<h1>0</h1>本
       <% end %>
-      <button class="btn btn-sm" data-target="#rankHourModal" data-toggle="modal" type="button">
-        <launch>
-          <span class="badge badge-pill badge-secondary">
-            ?
-          </span>
-        </launch>
-      </button>
     </div>
   </div>
   <hr>
+  <div class="save_lifespan">
+    <div class="form-inline mb-2">
+      <div class="col-4 p-0">
+        <i class="fas fa-heartbeat fa-2x"></i>
+      </div>
+      <% if @user.days.present? && @user.boxes.present? %>
+        <% lifespan = cigarettes * 5 %> 
+        <% if lifespan >= 1440 %> 
+          <% days = lifespan / 1440 %>
+          <% remain = lifespan - days * 1440 %>
+          <% hour = lifespan / 60 %>
+          <% rest = lifespan % 60 %>
+          伸びた寿命:<h1><%= days %></h1>日<h1><%= hour %></h1>時間<h1><%= rest %></h1>分
+        <% else %>
+          <% if lifespan >= 60 %>
+            <% hour = lifespan / 60 %>
+            <% rest = lifespan % 60 %>
+            伸びた寿命:<h1><%= hour %></h1>時間<h1><%= rest %></h1>分
+          <% else %>
+            伸びた寿命:<h1><%= lifespan %></h1>分
+          <% end %>
+        <% end %>
+      <% else %>
+        伸びた寿命:<h1>0</h1>分
+      <% end %>
+    </div>
+  </div>
+  <hr>
+
 
   <% if user_signed_in? && current_user.id == @user.id %>
 
@@ -87,13 +102,49 @@
   <% end%>
 
   <% @posts.each do |post| %>
-  <hr>
-  <p><span>ツイート内容: </span><%=link_to post.body, post_path(post.id) %></p>
+  <div class="card border-none mb-3 mx-auto">
+    <div class="origin_post">
+      <div class="bg-transparent ml-2 mt-2">
+        <div class="form-inline mb-2">
+          <strong>
+            <% if post.user.image? %>
+            <%= image_tag post.user.image.url, class: "icon" %> <%= link_to post.user.name, user_path(post.user.id) %>
+            <% else %>
+            <i class="far fa-user-circle icon"></i> <%= link_to post.user.name, user_path(post.user.id) %>
+            <% end %>
+          </strong>
+        </div>
+        <div class="post_content ml-3">
+          <p><%= post.body %></p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-transparent">
+      <div class="form-inline">
+        <% if post.favorited_by?(current_user) %> 
+        <%=link_to post_favorites_path(post.id), method: :delete do%>
+        <i class="fas fa-heart unlike-btn"></i>
+        <% end %>
+        <div class="like_count">
+          <%= post.favorites.count %>
+        </div>
+        <% else %>
+        <%=link_to post_favorites_path(post.id), method: :post do%>
+        <i class="far fa-heart like-btn" ></i>
+        <% end %>
+        <div class="like_count">
+          <%= post.favorites.count %>
+        </div>
+        <% end %>
+        <%=link_to post_path(post.id) do%>
+        <i class="far fa-comment-dots comment-btn"></i>
+        <% end %>
+        <div class="like_count">
+          <%= post.comments.count %>
+        </div>
+      </div>
+    </div>
+  </div>
   <% end %>
-
-  <% @favorite_posts.each do |post| %>
-  <hr>
-  <p><span>ファボツイート内容: </span><%=link_to post.body, post_path(post.id) %></p>
-  <% end %>
-
 </div>
