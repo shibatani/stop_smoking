@@ -1,13 +1,11 @@
-<%= stylesheet_link_tag "_users", :media => "all" %>
-
 <div class="smoker_ranking">
   <div class="table_group">
     <table class="table table-striped">
       <thead class="table-head text-white bg-dark">
         <tr>
-          <th width= 40%>順位</th>
-          <th width= 40%>ユーザー名</th>
-          <th width= 20%>継続日数</th>
+          <th width= 30% class="pl-5">順位</th>
+          <th width= 50%>ユーザー名</th>
+          <th width= 20% class="text-center">継続日数</th>
         </tr>
       </thead>
       <tbody>
@@ -15,55 +13,62 @@
         <% last_rank_number = 0  %>
         <% rank_number = 0 %>
         <% @users.each.with_index(1) do |user, i|%>
-        <tr class="bg-white">
-          <td>
-            <% #継続日数の計算 %>
-            <% created_date = user.created_at.to_date %>
-            <% today = Date.current %>
-            <% remain = (today - created_date).to_i %>
-            
-            <% #同率順位の計算 %>
-            <% if i != 1 %>
-              <% if last_running_days == remain %>
-                <% if rank_number == 1 %>
+          <tr class="bg-white">
+            <td>
+              <% #継続日数の計算 %>
+              <% created_date = user.created_at.to_date %>
+              <% today = Date.current %>
+              <% remain = (today - created_date).to_i %>
+              
+              <% #同率順位の計算 %>
+              <div class="caluculate_rank">
+                <% if i != 1 %>
+                  <% if last_running_days == remain %>
+                    <% if rank_number == 1 %>
+                      <img src="/assets/王冠 金.jpeg">
+                    <% elsif rank_number == 2 %>
+                      <img src="/assets/王冠 銀.jpeg">
+                    <% elsif rank_number == 3 %>
+                      <img src="/assets/王冠 銅.jpeg">
+                    <% else %>
+                      <%= rank_number %>
+                    <% end %>
+                  <% else %>
+                    <% last_rank_number += 1 %>
+                    <% rank_number += 1 %>
+                    <% if rank_number == 2 %>
+                      <img src="/assets/王冠 銀.jpeg">
+                    <% elsif rank_number == 3 %>
+                      <img src="/assets/王冠 銅.jpeg">
+                    <% else %>
+                      <div class="number">
+                        <h6><%= rank_number %></h6>
+                      </div>
+                    <% end %>
+                  <% end %>
+                <% else %>
+                  <% last_rank_number = i %>
+                  <% rank_number = i %>
                   <img src="/assets/王冠 金.jpeg">
-                <% elsif rank_number == 2 %>
-                  <img src="/assets/王冠 銀.jpeg">
-                <% elsif rank_number == 3 %>
-                  <img src="/assets/王冠 銅.jpeg">
-                <% else %>
-                  <%= rank_number %>
                 <% end %>
+            </td>
+            <td>
+              <% if user.image? %>
+                <%= image_tag user.image.url, class: "icon" %>
               <% else %>
-                <% last_rank_number += 1 %>
-                <% rank_number += 1 %>
-                <% if rank_number == 2 %>
-                  <img src="/assets/王冠 銀.jpeg">
-                <% elsif rank_number == 3 %>
-                  <img src="/assets/王冠 銅.jpeg">
-                <% else %>
-                  <%= rank_number %>
-                <% end %>
+                <i class="far fa-user-circle icon"></i>
               <% end %>
-            <% else %>
-              <% last_rank_number = i %>
-              <% rank_number = i %>
-              <img src="/assets/王冠 金.jpeg">
-            <% end %>
-          </td>
-          <td>
-            <% if user.image? %>
-              <%= image_tag user.image.url, class: "icon" %>
-            <% else %>
-              <i class="far fa-user-circle icon"></i>
-            <% end %>
-            <%= link_to user.name, user_path(user.id)%>
-          </td>
-          <td>
-            <%= remain %>
-            <% last_running_days = remain  %>
-          </td>
-        </tr>
+              <%= link_to user.name, user_path(user.id), class: "user_name" %>
+
+            </td>
+            <td>
+              <div class="text-center">
+                <h6><%= remain %></h6>
+              </div>
+              <% last_running_days = remain  %>
+            </td>
+          </tr>
+        </div>
         <% end %>
       </tbody>
     </table>

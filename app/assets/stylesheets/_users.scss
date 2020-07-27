@@ -1,3 +1,4 @@
+
 .register_smoker {
   max-width: 667px;
   margin-left: auto;
@@ -49,7 +50,7 @@
           transition: 0.3s;
           letter-spacing: 1px;
           padding: 0 5px;
-          width: 3%;
+          width: 5%;
           border: none;
           border-bottom: 2px solid #1b2538;
           background: transparent;
@@ -74,11 +75,9 @@
 }
 
 .smoker_ranking {
-
   .table_group {
-  max-width: 700px;
-  margin: 0 auto;
-
+    max-width: 700px;
+    margin: 0 auto;
     .icon {
     width: 30px;
     height: 30px;
@@ -86,8 +85,23 @@
     background-position: center center;
     }
 
+    .user_name {
+      color: #009688;
+      text-decoration: none;
+    }
+
     .fa {
-    font-size: 30px;
+      font-size: 30px;
+    }
+
+    .caluculate_rank {
+      img {
+        padding-left: 35px;
+      }
+
+      .number {
+        padding-left: 45px;
+      }
     }
   }
 }
@@ -102,6 +116,7 @@ margin-right: auto;
     height: 80px;
     border-radius: 50%;
     background-position: center center;
+    margin-left: 10px;
     }
 
   .fa {
@@ -116,14 +131,14 @@ margin-right: auto;
   .balloon {
     position: relative;
     padding: 15px;
-    margin-top: 25px;
+    margin: 25px 5px 0;
     border-radius: 10px;
     border: 3px solid #C0C0C0;
 
     &::after {
       content: "";
       position: absolute;
-      right: 590px;
+      right: 565px;
       bottom: 62px;
       left: 0px;
       width: 0px;
@@ -184,6 +199,11 @@ margin-right: auto;
       width: 40px;
       height: 40px;
       border-radius: 50%;
+    }
+
+    .user_name {
+      color: #009688;
+      text-decoration: none;
     }
 
     p {
@@ -262,8 +282,15 @@ margin-right: auto;
     background-position: enter center;
     }
 
+    .user_name {
+      color: #009688;
+      text-decoration: none;
+    }
+
     .far {
     font-size: 30px;
     }
   }
 }
+
+

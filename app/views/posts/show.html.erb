@@ -1,5 +1,3 @@
-<%= stylesheet_link_tag "_posts", :media => "all" %>
-
 <div class="post_show">
   <div class="card border-none mb-3 mx-auto">
     <div class="origin_post">
@@ -7,9 +5,9 @@
         <div class="form-inline mb-2">
           <strong>
             <% if @post.user.image? %>
-            <%= image_tag @post.user.image.url, class: "icon" %> <%= link_to @post.user.name, user_path(@post.user.id) %>
+            <%= image_tag @post.user.image.url, class: "icon" %> <%= link_to @post.user.name, user_path(@post.user.id), class: "user_name" %>
             <% else %>
-            <i class="far fa-user-circle icon"></i> <%= link_to @post.user.name, user_path(@post.user.id) %>
+            <i class="far fa-user-circle icon"></i> <%= link_to @post.user.name, user_path(@post.user.id), class: "user_name" %>
             <% end %>
           </strong>
         </div>
@@ -51,9 +49,9 @@
         <hr>
         <strong>
           <% if comment.user.image? %>
-          <%= image_tag comment.user.image.url, class: "icon" %> <%= link_to comment.user.name, user_path(comment.user.id) %>
+          <%= image_tag comment.user.image.url, class: "icon" %> <%= link_to comment.user.name, user_path(comment.user.id), class: "user_name" %>
           <% else %>
-          <i class="far fa-user-circle icon"></i> <%= link_to comment.user.name, user_path(comment.user.id) %>
+          <i class="far fa-user-circle icon"></i> <%= link_to comment.user.name, user_path(comment.user.id), class: "user_name" %>
           <% end %>
         </strong>
         <div class="post_content ml-3">
