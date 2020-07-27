@@ -1,20 +1,19 @@
-<%= stylesheet_link_tag "_posts", :media => "all" %>
 
-<% @posts.each do |post| %>
 
 <div class="post_index">
+  <% @posts.each do |post| %>
   <div class="card border-none mb-3 mx-auto">
     <div class="bg-transparent ml-2 mt-2">
       <div class="form-inline mb-2">
         <strong>
           <% if post.user.image? %>
-          <%= image_tag post.user.image.url, class: "icon" %> <%= link_to post.user.name, user_path(post.user.id) %>
+          <%= image_tag post.user.image.url, class: "icon" %> <%= link_to post.user.name, user_path(post.user.id), class: "user_name" %>
           <% else %>
-          <i class="far fa-user-circle icon"></i> <%= link_to post.user.name, user_path(post.user.id) %>
+          <i class="far fa-user-circle icon"></i> <%= link_to post.user.name, user_path(post.user.id), class: "user_name" %>
           <% end %>
         </strong>
       </div>
-      <div class="post_content ml-3">
+      <div class="post_content mx-3">
         <p><%= post.body %></p>
       </div>
     </div>
@@ -45,5 +44,7 @@
       </div>
     </div>
   </div>
+  <% end %>
 </div>
-<% end %>
+
+

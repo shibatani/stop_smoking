@@ -1,7 +1,6 @@
-<%= stylesheet_link_tag "_users", :media => "all" %>
 <div class="search_user">
-  <h5>友達を探す</h5>
-  <div class="search_form">
+  <h5 class="ml-2">友達を探す</h5>
+  <div class="search_form ml-2">
     <%= form_with url: search_users_path, method: :get, local: true do |f| %>
     <%= f.text_field :name, placeholder:"お名前", class: "form"%>
     <%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md" do %>
@@ -13,15 +12,15 @@
   <div class="display_user">
     <% @users.each do |user| %>
     <hr>
-    <div class="form-inline">
+    <div class="form-inline ml-2">
       <strong class="mr-4">
-      <% if user.image? %>
-      <%= image_tag user.image.url, class: "icon" %>
-      <% else %>
-      <i class="far fa-user-circle icon"></i>
-      <% end %>
-      <%= link_to user.name, user_path(user.id)%>
-    </strong>
+        <% if user.image? %>
+          <%= image_tag user.image.url, class: "icon" %>
+        <% else %>
+          <i class="far fa-user-circle icon"></i>
+        <% end %>
+        <%= link_to user.name, user_path(user.id), class: "user_name" %>
+      </strong>
     </div>
     <% end %>
     <hr>

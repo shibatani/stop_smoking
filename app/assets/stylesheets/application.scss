@@ -1,11 +1,16 @@
 @import '@fortawesome/fontawesome-free/scss/fontawesome';
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+@import "damages";
+@import "navbar";
+@import "posts";
+@import "users";
+
 
 body {
   background-color: #fbfbfc;
   main {
   margin: 0 auto;
-  padding: 1rem;
+  padding-top: 1rem;
   }
 }

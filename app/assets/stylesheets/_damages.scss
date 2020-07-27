@@ -1,5 +1,130 @@
-.smoker_top {
+@media screen and (max-width:639px) {
+/*スマホ用のcssを記述*/
+  .smoker_top {
+    .top_container {
+      text-align :center;
+      background-image: url("背景.jpg");
+      height: 350px;
+      background-size:cover;
+      opacity: 1;
 
-  .top_image　{
+
+      .content {
+        .catch {
+          color: #fff;
+          font-size: 2.3rem;
+        }
+
+        .lead {
+          color: #fff;
+        }
+
+        .btn_group {
+          .btn_register {
+          }
+        }
+      }
+    }
+
+    .detail {
+      .row {
+        max-width: 1030px;
+        margin-left: auto;
+        margin-right: auto;
+
+        .image {
+          width: 470px;
+          box-shadow: 0 0 8px gray;
+          text-align :center;
+        }
+      }
+    }
+  }
+}
+   
+@media only screen and (min-width:640px) and (max-width:1023px) {
+/*tablet用のcssを記述*/
+  .smoker_top {
+    .top_container {
+      text-align :center;
+      background-image: url("背景.jpg");
+      height: 350px;
+      background-size:cover;
+      opacity: 1;
+
+
+      .content {
+        .catch {
+          color: #fff;
+          font-size: 2.3rem;
+        }
+
+        .lead {
+          color: #fff;
+        }
+
+        .btn_group {
+          .btn_register {
+          }
+        }
+      }
+    }
+
+    .detail {
+      text-align :center;
+      .row {
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+
+        .image {
+          width: 470px;
+          box-shadow: 0 0 8px gray;
+        }
+      }
+    }
+  }
+}
+  
+@media screen and (min-width:1024px) {
+/*pc用のcssを記述*/
+  .smoker_top {
+    .top_container {
+      text-align :center;
+      background-image: url("背景.jpg");
+      height: 350px;
+      background-size:cover;
+      opacity: 1;
+
+
+      .content {
+        .catch {
+          color: #fff;
+          font-size: 2.3rem;
+        }
+
+        .lead {
+          color: #fff;
+        }
+
+        .btn_group {
+          .btn_register {
+          }
+        }
+      }
+    }
+
+    .detail {
+      .row {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+
+        .image {
+          width: 500px;
+          box-shadow: 0 0 8px gray;
+        }
+      }
+    }
   }
 }
