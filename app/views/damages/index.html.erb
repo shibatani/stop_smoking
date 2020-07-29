@@ -6,7 +6,10 @@
 
       <div class="btn_group pt-5">
         <%= link_to '無料会員登録', new_user_registration_path, class:"btn btn-success btn-lg mr-3" %>
-        <%= link_to 'ログイン', user_session_path, class:"btn btn-secondary btn-lg" %>
+        <%= link_to 'ログイン', user_session_path, class:"btn btn-secondary btn-lg mr-3" %>
+        <div class="guest_login">
+          <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class:"btn btn-warning btn-lg mt-3" %>
+        </div>
       </div>
     </div>
   </div>
@@ -35,7 +38,7 @@
           </p>
         </div>
         <div class="col-md-5">
-          <%= image_tag"禁煙ランキング.png", class: 'image' %>
+          <%= image_tag "禁煙ライフ.png", class: 'image' %>
         </div>
       </div>
     </div>
@@ -69,21 +72,65 @@
           </p>
         </div>
         <div class="col-md-5">
-            <%= image_tag "禁煙を可視化.png", class: 'image' %>
+          <%= image_tag "禁煙を可視化.png", class: 'image' %>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="footer pt-5 pb-5 text-center">
-    <h2>
-      <i class="fas fa-check-circle mr-3" style="color: #4CAF50;"></i>
-      さあ、始めよう
-    </h2>
-    <p class="pt-2">登録に必要な時間は 1分程度 です。</p>
-    <div class="btn_group pt-4">
+  <div class="other_function pt-5">
+    <h3 class="text-center pb-4">
+      <i class="fas fa-tools text-muted mr-3"></i>他にもこんな機能が
+    </h3>
+
+    <div class="row mb-3">
+      <div class="col-md-4 mb-3">
+        <div class="card grow">
+          <div class="card-body">
+            <h4>
+              <i class="far fa-comments text-muted mr-3"></i>
+              コメント
+            </h4>
+            <p class="lead text-muted">投稿に対してコメントを残すことができます。</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card grow">
+          <div class="card-body">
+            <h4>
+              <i class="fas fa-heart text-muted mr-3"></i>
+              いいね
+            </h4>
+            <p class="lead text-muted">投稿に対して「いいね」を残すことができます。</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card grow">
+          <div class="card-body">
+            <h4>
+              <i class="fas fa-search text-muted mr-3"></i>
+              検索
+            </h4>
+            <p class="lead text-muted">任意のユーザーを探し出すことができます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer pt-5 pb-5 text-center">
+      <h2>
+        <i class="fas fa-check-circle mr-3" style="color: #4CAF50;"></i>
+        さあ、始めよう
+      </h2>
+      <p class="pt-2">登録に必要な時間は 1分程度 です。</p>
+      <div class="btn_group pt-4">
         <%= link_to '無料会員登録', new_user_registration_path, class:"btn btn-success btn-lg mr-3" %>
         <%= link_to 'ログイン', user_session_path, class:"btn btn-secondary btn-lg" %>
+        <div class="guest_login">
+          <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class:"btn btn-warning btn-lg mt-3" %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
