@@ -16,10 +16,11 @@
       <strong class="mr-4">
         <% if user.image? %>
           <%= image_tag user.image.url, class: "icon" %>
+          <%= link_to user.name, user_path(user.id), class: "user_name" %>
         <% else %>
-          <i class="far fa-user-circle icon"></i>
+          <%= image_tag 'profile.png', class: "no_user_image" %>
+          <%= link_to user.name, user_path(user.id), class: "user_name" %>
         <% end %>
-        <%= link_to user.name, user_path(user.id), class: "user_name" %>
       </strong>
     </div>
     <% end %>
