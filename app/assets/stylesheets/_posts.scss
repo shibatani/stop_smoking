@@ -44,6 +44,11 @@
       border-radius: 50%;
     }
 
+    .no_user_image{
+      width: 40px;
+      border-radius: 50%; 
+    }
+
     .user_name {
       color: #009688;
       text-decoration: none;
@@ -94,6 +99,11 @@
         border-radius: 50%;
       }
 
+      .no_user_image{
+        width: 45px;
+        border-radius: 50%; 
+      }
+
       .user_name {
         color: #009688;
         text-decoration: none;
@@ -135,6 +145,11 @@
         width: 30px;
         height: 30px;
         border-radius: 50%;
+      }
+
+      .no_user_image{
+        width: 30px;
+        border-radius: 50%; 
       }
 
       .user_name {

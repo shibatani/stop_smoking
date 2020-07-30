@@ -9,7 +9,8 @@
           <% if post.user.image? %>
           <%= image_tag post.user.image.url, class: "icon" %> <%= link_to post.user.name, user_path(post.user.id), class: "user_name" %>
           <% else %>
-          <i class="far fa-user-circle icon"></i> <%= link_to post.user.name, user_path(post.user.id), class: "user_name" %>
+          <%= image_tag 'profile.png', class: "no_user_image" %>
+          <%= link_to post.user.name, user_path(post.user.id), class: "user_name" %>
           <% end %>
         </strong>
       </div>

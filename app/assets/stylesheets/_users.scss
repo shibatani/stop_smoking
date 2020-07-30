@@ -85,6 +85,11 @@
     background-position: center center;
     }
 
+    .no_user_image{
+      width: 30px;
+      border-radius: 50%; 
+    }
+
     .user_name {
       color: #009688;
       text-decoration: none;
@@ -115,7 +120,13 @@ margin-right: auto;
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background-position: center center;
+    margin-left: 10px;
+    }
+
+  .no_user_image{
+    width: 80px;
+    border-radius: 50%; 
+    border-radius: 50%;
     margin-left: 10px;
     }
 
@@ -181,10 +192,16 @@ margin-right: auto;
     &:hover {
     transform:scale(1.05);
     }
+
     .icon {
       width: 40px;
       height: 40px;
       border-radius: 50%;
+    }
+
+    .no_user_image{
+      width: 40px;
+      border-radius: 50%; 
     }
 
     .user_name {
@@ -271,6 +288,11 @@ margin-right: auto;
     .user_name {
       color: #009688;
       text-decoration: none;
+    }
+    
+    .no_user_image{
+      width: 30px;
+      border-radius: 50%; 
     }
 
     .far {
