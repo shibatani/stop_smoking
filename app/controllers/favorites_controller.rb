@@ -3,6 +3,10 @@ class FavoritesController < ApplicationController
     favorite = current_user.favorites.build(post_id: params[:post_id])
     favorite.save
     redirect_to posts_path
+
+    post = Post.find(params[:post_id])
+    post.create_notification_like!(current_user)
+
   end
 
   def destroy
