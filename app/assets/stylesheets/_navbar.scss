@@ -4,18 +4,22 @@
   }
 
   .drawer-menu {
+    .circle {
+    margin-bottom: 10px;
+
+    }
     .drawer-menu-item {
-    display: inline-block;
-    transition: .3s;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    margin: 0px 1px;
-      &:hover {
-        text-decoration: transparent;
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-        color: #111111;
-      }
+      display: inline-block;
+      transition: .3s;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      margin: 0px 1px;
+        &:hover {
+          text-decoration: transparent;
+          -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+          color: #111111;
+        }
      } 
     
     .icon {

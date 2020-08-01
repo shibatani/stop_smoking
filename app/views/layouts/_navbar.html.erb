@@ -37,6 +37,9 @@
             <% end %>
           </li>
           <li>
+            <% if unchecked_notifications.any? %>
+            <i class="fa fa-circle circle" style="color: gold;"></i>
+            <% end %>
             <%= link_to notifications_path, class: 'drawer-menu-item' do %>
             <i class="far fa-bell icon"></i>
             通知
