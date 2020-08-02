@@ -1,10 +1,31 @@
-@media screen and (max-width:666px) {
+@media screen and (max-width:767px) {
 /*スマホ用のcssを記述*/
   .smoker_top {
+
+  h1 {
+    font-size: 23px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
     .top_container {
       text-align :center;
       background-image: url("背景.jpg");
-      height: 350px;
+      height: 300px;
       background-size:cover;
       opacity: 1;
 
@@ -12,11 +33,11 @@
       .content {
         .catch {
           color: #fff;
-          font-size: 2.3rem;
         }
 
         .lead {
           color: #fff;
+          font-size: 16px;
         }
 
         .btn_group {
@@ -26,22 +47,35 @@
       }
     }
 
-    .detail {
-      .row {
-        max-width: 1030px;
-        margin-left: auto;
-        margin-right: auto;
+    .discription {
+      padding: 1.2rem 0;
+    }
 
-        .image {
-          width: 470px;
-          box-shadow: 0 0 8px gray;
-          text-align :center;
+    .detail {
+      .style {
+        padding: 1.5rem 0;
+        .row {
+          max-width: 380px;
+          margin-left: auto;
+          margin-right: auto;
+
+          .title {
+            text-align :center;
+          }
+
+          .image_group {
+            text-align :center;
+            .image {
+              width: 320px;
+              box-shadow: 0 0 8px gray;
+            }
+          }
         }
       }
     }
 
     .other_function {
-      max-width: 470px;
+      max-width: 350px;
       margin-left: auto;
       margin-right: auto;
 
@@ -55,7 +89,7 @@
   }
 }
    
-@media only screen and (min-width:666px) and (max-width:1023px) {
+@media only screen and (min-width:768px) and (max-width:1024px) {
 /*tablet用のcssを記述*/
   .smoker_top {
     .top_container {
@@ -69,7 +103,6 @@
       .content {
         .catch {
           color: #fff;
-          font-size: 2.3rem;
         }
 
         .lead {
@@ -83,22 +116,34 @@
       }
     }
 
-    .detail {
-      text-align :center;
-      .row {
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
+    .discription {
+      padding: 3rem 0;
+    }
 
-        .image {
-          width: 470px;
-          box-shadow: 0 0 8px gray;
+    .detail {
+      max-width: 1024px;
+      margin-left: auto;
+      margin-right: auto;
+      .style {
+        padding: 3rem 0;
+        .row {
+          ax-width: 1024px;
+          margin-left: auto;
+          margin-right: auto;
+
+          .image_group {
+            text-align :center;
+            .image {
+              width: 280px;
+              box-shadow: 0 0 8px gray;
+            }
+          }
         }
       }
     }
 
     .other_function {
-      max-width: 500px;
+      max-width: 720px;
       margin-left: auto;
       margin-right: auto;
 
@@ -111,8 +156,8 @@
     }
   }
 }
-  
-@media screen and (min-width:1024px) {
+
+@media screen and (min-width:1025px) {
 /*pc用のcssを記述*/
   .smoker_top {
     .top_container {
@@ -126,7 +171,6 @@
       .content {
         .catch {
           color: #fff;
-          font-size: 2.3rem;
         }
 
         .lead {
@@ -140,15 +184,22 @@
       }
     }
 
-    .detail {
-      .row {
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
+    .discription {
+      padding: 3rem 0;
+    }
 
-        .image {
-          width: 500px;
-          box-shadow: 0 0 8px gray;
+    .detail {
+      .style {
+        padding: 3rem 0;
+        .row {
+          max-width: 1200px;
+          margin-left: auto;
+          margin-right: auto;
+
+          .image {
+            width: 500px;
+            box-shadow: 0 0 8px gray;
+          }
         }
       }
     }
