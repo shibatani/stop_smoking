@@ -25,7 +25,15 @@
         <% end %>
 
         <div class="form_group">
-          <%= f.submit "送信", data: { confirm: "ログインしますか？"}, class:"btn btn-dark btn-lg"  %>
+          <%= f.submit "ログイン", data: { confirm: "ログインしますか？"}, class:"btn btn-dark w-100"  %>
+        </div>
+
+        <hr>
+        <div class="guest_login">
+          <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class:"btn btn-warning mt-3 w-100" %>
+        </div>
+        <div class="register_user">
+          <%= link_to 'アカウントをお持ちでない方', new_user_registration_path, class:"btn btn-secondary w-100" %>
         </div>
         <% end %>
       </div>

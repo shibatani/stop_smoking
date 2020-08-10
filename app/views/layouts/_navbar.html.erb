@@ -24,16 +24,15 @@
           <i class="fas fa-edit icon"></i>禁煙ライフ投稿
           <% end %>
         </li>
-        
+        <li>
+          <%= link_to search_users_path, class: 'drawer-menu-item' do %>
+          <i class="fas fa-search icon"></i>検索
+          <% end %>
+        </li>
         <% if user_signed_in? %>
           <li>
             <%= link_to user_path(current_user), class: 'drawer-menu-item' do %>
             <i class="fas fa-user icon"></i>プロフィール
-            <% end %>
-          </li>
-          <li>
-            <%= link_to search_users_path, class: 'drawer-menu-item' do %>
-            <i class="fas fa-search icon"></i>検索
             <% end %>
           </li>
           <li>
