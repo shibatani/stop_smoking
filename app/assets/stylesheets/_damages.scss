@@ -68,6 +68,10 @@
             .image {
               width: 320px;
               box-shadow: 0 0 8px gray;
+              transition:transform 0.3s;
+              &:hover {
+              transform:scale(1.05);
+              }
             }
           }
         }
@@ -136,6 +140,10 @@
             .image {
               width: 280px;
               box-shadow: 0 0 8px gray;
+              transition:transform 0.3s;
+              &:hover {
+              transform:scale(1.05);
+              }
             }
           }
         }
@@ -199,6 +207,10 @@
           .image {
             width: 500px;
             box-shadow: 0 0 8px gray;
+            transition:transform 0.3s;
+            &:hover {
+            transform:scale(1.05);
+            }
           }
         }
       }

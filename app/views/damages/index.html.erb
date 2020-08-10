@@ -38,7 +38,9 @@
           </p>
         </div>
         <div class="col-md-5 image_group">
-          <%= image_tag asset_path("禁煙ランキング.png"), class: 'image' %>
+          <%= link_to users_path do %>
+            <%= image_tag asset_path("禁煙ランキング.png"), class: 'image' %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -55,7 +57,13 @@
           </p>
         </div>
         <div class="col-md-5 image_group">
-          <%= image_tag asset_path("禁煙を可視化.png"), class: 'image' %>
+          <% if user_signed_in? %>
+            <%= link_to user_path(current_user) do %>
+              <%= image_tag asset_path("禁煙を可視化.png"), class: 'image' %> 
+            <% end %>
+          <% else %>
+            <%= image_tag asset_path("禁煙を可視化.png"), class: 'image' %> 
+          <% end %>
         </div>
       </div>
     </div>
@@ -72,7 +80,9 @@
           </p>
         </div>
         <div class="col-md-5 image_group">
-          <%= image_tag asset_path("禁煙ライフ.png"), class: 'image' %>
+          <%= link_to posts_path do %>
+            <%= image_tag asset_path("禁煙ライフ.png"), class: 'image' %>
+          <% end %>
         </div>
       </div>
     </div>
