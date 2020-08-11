@@ -1,57 +1,8 @@
 <div class="post_index">
   <% @posts.each do |post| %>
-  <div class="card border-none mb-3 mx-auto">
-    <div class="bg-transparent ml-2 mt-2">
-      <div class="form-inline mb-2">
-        <strong>
-          <% if post.user.image? %>
-          <%= image_tag post.user.image.url, class: "icon" %> <%= link_to post.user.name, user_path(post.user.id), class: "user_name" %>
-          <% else %>
-          <%= image_tag 'profile.png', class: "no_user_image" %>
-          <%= link_to post.user.name, user_path(post.user.id), class: "user_name" %>
-          <% end %>
-        </strong>
-      </div>
-      <div class="post_content mx-3">
-        <p><%= post.body %></p>
-      </div>
+    <div id="like_buttons_<%= post.id %>">
+      <%= render 'post', post: post %>
     </div>
-
-    <div class="card-footer bg-transparent">
-      <div class="form-inline">
-        <% if user_signed_in? %>
-          <% if post.favorited_by?(current_user) %> 
-            <%=link_to post_favorites_path(post.id), method: :delete do%>
-              <i class="fas fa-heart unlike-btn"></i>
-            <% end %>
-            <div class="like_count">
-              <%= post.favorites.count %>
-            </div>
-          <% else %>
-            <%=link_to post_favorites_path(post.id), method: :post do%>
-              <i class="far fa-heart like-btn" ></i>
-            <% end %>
-            <div class="like_count">
-              <%= post.favorites.count %>
-            </div>
-          <% end %>
-        <% else %>
-          <%= link_to user_session_path do%>
-            <i class="far fa-heart like-btn" ></i>
-          <% end %>
-          <div class="like_count">
-            <%= post.favorites.count %>
-          </div>
-        <% end %>
-        <%=link_to post_path(post.id) do%>
-          <i class="far fa-comment-dots comment-btn"></i>
-        <% end %>
-        <div class="like_count">
-          <%= post.comments.count %>
-        </div>
-      </div>
-    </div>
-  </div>
   <% end %>
 </div>
 
