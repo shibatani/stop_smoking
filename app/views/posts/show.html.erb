@@ -21,7 +21,7 @@
     <div class="card-footer bg-transparent">
       <div class="form-inline">
         <div id="show_like_buttons_<%= @post.id %>">
-          <%= render 'post', post: @post %>
+          <%= render 'favorites/favorite', post: @post %>
         </div>
         <%=link_to post_path(@post.id) do%>
         <i class="far fa-comment-dots comment-btn"></i>

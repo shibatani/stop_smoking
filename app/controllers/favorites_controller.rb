@@ -7,7 +7,6 @@ class FavoritesController < ApplicationController
 
     post = Post.find(params[:post_id])
     post.create_notification_like!(current_user)
-
   end
 
   def destroy
