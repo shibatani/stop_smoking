@@ -1,2 +1,3 @@
-$("#like_buttons_<%= @post.id %>").html("<%= j(render 'posts/post',  post: @post ) %>");
-$("#show_like_buttons_<%= @post.id %>").html("<%= j(render 'posts/post',  post: @post ) %>");
+$("#like_buttons_<%= @post.id %>").html("<%= j(render 'favorites/favorite',  post: @post ) %>");
+$("#show_like_buttons_<%= @post.id %>").html("<%= j(render 'favorites/favorite',  post: @post ) %>");
+$("#usershow_like_buttons_<%= @post.id %>").html("<%= j(render 'favorites/favorite',  post: @post ) %>");

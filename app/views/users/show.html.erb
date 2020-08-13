@@ -121,21 +121,9 @@
     
     <div class="card-footer bg-transparent">
       <div class="form-inline">
-        <% if post.favorited_by?(current_user) %> 
-        <%=link_to post_favorites_path(post.id), method: :delete do%>
-        <i class="fas fa-heart unlike-btn"></i>
-        <% end %>
-        <div class="like_count">
-          <%= post.favorites.count %>
+        <div id="usershow_like_buttons_<%= post.id %>">
+          <%= render 'favorites/favorite', post: post %>
         </div>
-        <% else %>
-        <%=link_to post_favorites_path(post.id), method: :post do%>
-        <i class="far fa-heart like-btn" ></i>
-        <% end %>
-        <div class="like_count">
-          <%= post.favorites.count %>
-        </div>
-        <% end %>
         <%=link_to post_path(post.id) do%>
         <i class="far fa-comment-dots comment-btn"></i>
         <% end %>

@@ -21,7 +21,7 @@
     <div class="card-footer bg-transparent">
       <div class="form-inline">
         <div id="like_buttons_<%= post.id %>">
-          <%= render 'post', post: post %>
+          <%= render 'favorites/favorite', post: post %>
         </div>
         <i class="far fa-comment-dots comment-btn"></i>
         <div class="like_count">
