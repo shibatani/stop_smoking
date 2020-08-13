@@ -113,9 +113,12 @@
             <% end %>
           </strong>
         </div>
-        <div class="post_content mx-3">
-          <p><%= post.body %></p>
-        </div>
+        
+        <%=link_to post_path(post.id), class: "post_body" do %>
+          <div class="card-body post_content mx-3">
+            <p><%= post.body %></p>
+          </div>
+        <% end %>
       </div>
     </div>
     
@@ -124,9 +127,7 @@
         <div id="usershow_like_buttons_<%= post.id %>">
           <%= render 'favorites/favorite', post: post %>
         </div>
-        <%=link_to post_path(post.id) do%>
         <i class="far fa-comment-dots comment-btn"></i>
-        <% end %>
         <div class="like_count">
           <%= post.comments.count %>
         </div>
