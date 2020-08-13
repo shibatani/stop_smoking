@@ -1,7 +1,6 @@
 <div class="post_index">
   <% @posts.each do |post| %>
   <div class="card border-none mb-3 mx-auto">
-    <%=link_to post_path(post.id) do%>
     <div class="bg-transparent ml-2 mt-2">
       <div class="form-inline mb-2">
         <strong>
@@ -13,11 +12,12 @@
           <% end %>
         </strong>
       </div>
-      <div class="post_content mx-3">
-        <p><%= post.body %></p>
-      </div>
+      <%=link_to post_path(post.id), class: "post_body" do %>
+        <div class="card-body post_content mx-3">
+          <p><%= post.body %></p>
+        </div>
+      <% end %>
     </div>
-    <% end %>
     <div class="card-footer bg-transparent">
       <div class="form-inline">
         <div id="like_buttons_<%= post.id %>">
