@@ -1,10 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
-  def new 
-    @post = Post.new
-  end
-
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
@@ -13,6 +9,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    @post = Post.new
     @posts = Post.all.order(created_at: "DESC")
   end
 

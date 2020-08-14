@@ -18,7 +18,7 @@
   
   <div class="message">
     <% if @user.days.present? && @user.boxes.present? %>
-    あなたは<strong>タバコ</strong>を<strong><%= @user.days %></strong>日に1回,<strong><%= @user.boxes %></strong>箱買いに行っていました。
+    あなたはタバコを<strong><%= @user.days %></strong>日に1回,<strong><%= @user.boxes %></strong>箱買っていました。
     <% else %>
     タバコ購入頻度についてのデータがありません。
     <% end %>
