@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(user_params)
     if @user.update(user_params)
-      redirect_to users_path, notice: "更新しました。"
+      redirect_to user_path(current_user.id), notice: "更新しました。"
     else
       flash.now[:alert] = "入力に不備があります。"
       render :edit
