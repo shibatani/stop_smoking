@@ -1,2 +1,0 @@
-class Damage < ApplicationRecord
-end
