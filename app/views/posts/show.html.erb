@@ -1,36 +1,6 @@
 <div class="post_show">
   <div class="card border-none mb-3 mx-auto">
-    <div class="origin_post">
-      <div class="bg-transparent ml-2 mt-2">
-        <div class="form-inline mb-2">
-          <strong>
-            <% if @post.user.image? %>
-              <%= image_tag @post.user.image.url, class: "icon" %> <%= link_to @post.user.name, user_path(@post.user.id), class: "user_name" %>
-            <% else %>
-              <%= image_tag 'profile.png', class: "no_user_image" %>
-              <%= link_to @post.user.name, user_path(@post.user.id), class: "user_name" %>
-            <% end %>
-          </strong>
-        </div>
-        <div class="post_content mx-3">
-          <p><%= @post.body %></p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="card-footer bg-transparent">
-      <div class="form-inline">
-        <div id="show_like_buttons_<%= @post.id %>">
-          <%= render 'favorites/favorite', post: @post %>
-        </div>
-        <%=link_to post_path(@post.id) do%>
-        <i class="far fa-comment-dots comment-btn"></i>
-        <% end %>
-        <div class="like_count">
-          <%= @post.comments.count %>
-        </div>
-      </div>
-    </div>
+    <%= render 'card/card', post: @post %>
 
     <div class="comment">
       <div class="bg-transparent ml-2">
@@ -38,10 +8,10 @@
         <hr>
         <strong>
           <% if comment.user.image? %>
-          <%= image_tag comment.user.image.url, class: "icon" %> <%= link_to comment.user.name, user_path(comment.user.id), class: "user_name" %>
+            <%= image_tag comment.user.image.url, class: "icon" %> <%= link_to comment.user.name, user_path(comment.user.id), class: "user_name" %>
           <% else %>
-          <%= image_tag 'profile.png', class: "no_user_image" %>
-          <%= link_to comment.user.name, user_path(comment.user.id), class: "user_name" %>
+            <%= image_tag 'profile.png', class: "no_user_image" %>
+            <%= link_to comment.user.name, user_path(comment.user.id), class: "user_name" %>
           <% end %>
         </strong>
         <div class="post_content ml-3">
