@@ -15,15 +15,12 @@
         <% @users.each.with_index(1) do |user, i|%>
           <tr class="bg-white">
             <td>
-              <% #継続日数の計算 %>
-              <% created_date = user.created_at.to_date %>
-              <% today = Date.current %>
-              <% remain = (today - created_date).to_i %>
+              <% @continue_days = user.continue_days %>
               
               <% #同率順位の計算 %>
               <div class="caluculate_rank">
                 <% if i != 1 %>
-                  <% if last_running_days == remain %>
+                  <% if last_running_days == @continue_days %>
                     <% if rank_number == 1 %>
                       <img src="/assets/王冠 金.jpeg">
                     <% elsif rank_number == 2 %>
@@ -65,9 +62,9 @@
             </td>
             <td>
               <div class="text-center">
-                <h6><%= remain %></h6>
+                <h6><%= @continue_days %></h6>
               </div>
-              <% last_running_days = remain  %>
+              <% last_running_days = @continue_days  %>
             </td>
           </tr>
         </div>
