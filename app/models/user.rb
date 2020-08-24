@@ -50,8 +50,4 @@ class User < ApplicationRecord
     lifespan = cigarettes * 5
     return lifespan
   end
-
-  def smoking_profile_present?
-    @user.days.present? && @user.boxes.present?
-  end
 end

@@ -8,7 +8,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-
     continue_days = @user.continue_days
     frequency = @user.frequency(continue_days)
     @saved_money = @user.saved_money(frequency)
