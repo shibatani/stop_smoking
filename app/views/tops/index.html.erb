@@ -1,5 +1,3 @@
-<%= javascript_pack_tag "top/application" %>
-
 <div class="smoker_top">
   <div class="top_container">
     <div class="content pt-5">
@@ -41,7 +39,7 @@
         </div>
         <div class="col-md-5 image_group">
           <%= link_to users_path do %>
-            <%= image_tag asset_path("禁煙ランキング.png"), class: 'image js-animation' %>
+            <%= image_tag asset_path("禁煙ランキング.png"), class: 'image' %>
           <% end %>
         </div>
       </div>
@@ -61,10 +59,10 @@
         <div class="col-md-5 image_group">
           <% if user_signed_in? %>
             <%= link_to user_path(current_user) do %>
-              <%= image_tag asset_path("禁煙を可視化.png"), class: 'image js-animation' %> 
+              <%= image_tag asset_path("禁煙を可視化.png"), class: 'image' %> 
             <% end %>
           <% else %>
-            <%= image_tag asset_path("禁煙を可視化.png"), class: 'image js-animation' %> 
+            <%= image_tag asset_path("禁煙を可視化.png"), class: 'image' %> 
           <% end %>
         </div>
       </div>
@@ -83,7 +81,7 @@
         </div>
         <div class="col-md-5 image_group">
           <%= link_to posts_path do %>
-            <%= image_tag asset_path("禁煙ライフ.png"), class: 'image js-animation' %>
+            <%= image_tag asset_path("禁煙ライフ.png"), class: 'image' %>
           <% end %>
         </div>
       </div>
@@ -146,5 +144,3 @@
       </div>
     </div>
   </div>
-
-

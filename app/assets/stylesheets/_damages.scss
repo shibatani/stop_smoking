@@ -41,7 +41,7 @@
         }
 
         .btn_group {
-          .btn {
+          .btn_register {
           }
         }
       }
@@ -72,18 +72,6 @@
               &:hover {
               transform:scale(1.05);
               }
-            }
-            .js-animation {
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(40px);
-              transition: all 1s;
-            }
-
-            .js-animation.is-show {
-              opacity: 1;
-              visibility: visible;
-              transform: translateY(0px);
             }
           }
         }
@@ -157,18 +145,6 @@
               transform:scale(1.05);
               }
             }
-            .js-animation {
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(40px);
-            transition: all 1s;
-            }
-
-            .js-animation.is-show {
-              opacity: 1;
-              visibility: visible;
-              transform: translateY(0px);
-            }
           }
         }
       }
@@ -235,19 +211,6 @@
             &:hover {
             transform:scale(1.05);
             }
-          }
-
-          .js-animation {
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(40px);
-            transition: all 1s;
-          }
-
-          .js-animation.is-show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0px);
           }
         }
       }
