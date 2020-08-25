@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.new
-    @posts = Post.all.includes(:favorites, :comments, :user).order(created_at: "DESC")
+    @posts = Post.all.order(created_at: "DESC")
   end
 
   def show
