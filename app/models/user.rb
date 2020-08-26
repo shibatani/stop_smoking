@@ -6,6 +6,9 @@ class User < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  attr_accessor :x, :y, :width, :height
+  has_one_attached :image
+
   validates :name, presence: true 
   validates :word, length: { maximum: 200 } 
 

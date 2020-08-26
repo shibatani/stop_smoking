@@ -9,7 +9,18 @@ require("@rails/activestorage").start()
 require("channels")
 require("bootstrap/dist/js/bootstrap")
 import '@fortawesome/fontawesome-free/js/all';
+
+require ('cropper/cropper')
+//= require rails-ujs
 //= require jquery
+//= require jquery_ujs
+//= require cropper.min.js
+//= require jquery-cropper.min.js
+//= require activestorage
+//= require turbolinks
+//= require_tree .
+//= require popper
+//= require bootstrap-sprockets
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

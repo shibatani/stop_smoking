@@ -7,7 +7,6 @@
         <div class="normal">
           <div class="form_group">
             <label>プロフィール画像</label>
-            <%= f.file_field :image, class: "upload_image" %>
           </div>
           <div class="form_group">
             <label>名前</label>
@@ -33,6 +32,41 @@
           <%= f.submit "送信", data: { confirm: "更新しますか？"}, class: "btn btn-dark btn-lg"  %>
         </div>
         <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="preview" style='overflow:hidden'>
+          <div id="beforeUpload">
+          </div>
+          <img src="" id="croppedImage">
+      </div>
+      <%= form_with model: @user, local: true do |f| %>
+        <%= f.file_field :image%>
+        <%= f.hidden_field :image_x, id:"dataX"%>
+        <%= f.hidden_field :image_y, id:"dataY"%>
+        <%= f.hidden_field :image_w, id:"dataWidth"%>
+        <%= f.hidden_field :image_h, id:"dataHeight"%>
+
+        <%= f.submit "button", id:"btnUpload", class: 'btn btn-success'%>
+      <% end %>
+      <div class="modal fade" id="cropModal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="img-container">
+                <img src="" id="imageModal" alt="picture">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="btn-save" data-dismiss="modal">Save</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
