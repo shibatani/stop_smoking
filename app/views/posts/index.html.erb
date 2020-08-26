@@ -1,52 +1,38 @@
-<div class="post mt-2">
-  <div class="discription">
-    <h6 class="text-center">禁煙生活で感じたことを気軽に投稿してみよう。
-    </h6>
-  </div>
-  <div class="form_groups">
-    <div class="form_group">
-      <%= form_for @post do |f| %>
-      <%= f.text_area :body, :placeholder => "コメントを追加...", class: "form" %>
-      <%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md" do %>
-      <i class="far fa-paper-plane fa-lg mb-3"></i>
-      <% end %>
+<i class="fas fa-edit fa-3x modal_botton" data-toggle="modal" data-target="#modal-example"></i>
+<div class="modal" id="modal-example" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <div class="post mt-2">
+          <div class="discription">
+            <h6 class="text-center">禁煙生活で感じたことを気軽に投稿してみよう。
+            </h6>
+          </div>
+          <div class="form_groups">
+            <div class="form_group">
+              <%= form_for @post do |f| %>
+              <%= f.text_area :body, :placeholder => "コメントを追加...", class: "form" %>
+              <%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md" do %>
+              <i class="far fa-paper-plane fa-lg mb-3"></i>
+              <% end %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-    <% end %>
   </div>
 </div>
 
 <div class="post_index">
   <% @posts.each do |post| %>
-  <div class="card border-none mb-3 mx-auto">
-    <div class="bg-transparent ml-2 mt-2">
-      <div class="form-inline mb-2">
-        <strong>
-          <% if post.user.image? %>
-          <%= image_tag post.user.image.url, class: "icon" %> <%= link_to post.user.name, user_path(post.user.id), class: "user_name" %>
-          <% else %>
-          <%= image_tag 'profile.png', class: "no_user_image" %>
-          <%= link_to post.user.name, user_path(post.user.id), class: "user_name" %>
-          <% end %>
-        </strong>
-      </div>
-      <%=link_to post_path(post.id), class: "post_body" do %>
-        <div class="card-body post_content mx-3">
-          <p><%= post.body %></p>
-        </div>
-      <% end %>
+    <div class="card border-none mb-3 mx-auto">
+      <%= render 'card/card', post: post %>
     </div>
-    <div class="card-footer bg-transparent">
-      <div class="form-inline">
-        <div id="like_buttons_<%= post.id %>">
-          <%= render 'favorites/favorite', post: post %>
-        </div>
-        <i class="far fa-comment-dots comment-btn"></i>
-        <div class="like_count">
-          <%= post.comments.count %>
-        </div>
-      </div>
-    </div>
-  </div>
   <% end %>
 </div>
 

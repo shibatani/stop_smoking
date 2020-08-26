@@ -20,7 +20,36 @@ class User < ApplicationRecord
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = "ゲストユーザー"
+      user.days = 1
+      user.boxes = 1
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end
+  end
+
+  def continue_days
+    created_date = self.created_at.to_date 
+    today = Date.current 
+    continue_days = (today - created_date).to_i 
+    return continue_days
+  end
+
+  def frequency(continue_days)
+    frequency = continue_days / self.days
+    return frequency
+  end
+
+  def saved_money(frequency) 
+    saved_money = self.boxes * 500 * frequency
+    return saved_money
+  end
+
+  def cigarettes(frequency)
+    cigarettes = self.boxes * 20 * frequency
+    return cigarettes
+  end
+
+  def lifespan(cigarettes)
+    lifespan = cigarettes * 5
+    return lifespan
   end
 end
