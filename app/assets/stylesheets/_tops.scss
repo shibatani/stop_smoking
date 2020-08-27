@@ -1,0 +1,244 @@
+@media screen and (max-width:767px) {
+/*スマホ用のcssを記述*/
+  .smoker_top {
+
+  h1 {
+    font-size: 23px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+    .top_container {
+      text-align :center;
+      background-image: url("背景.jpg");
+      height: 300px;
+      background-size:cover;
+      opacity: 1;
+
+
+      .content {
+        .catch {
+          color: #fff;
+        }
+
+        .lead {
+          color: #fff;
+          font-size: 16px;
+        }
+
+        .btn_group {
+          .btn_register {
+          }
+        }
+      }
+    }
+
+    .discription {
+      padding: 1.2rem 0;
+    }
+
+    .detail {
+      .style {
+        padding: 1.5rem 0;
+        .row {
+          max-width: 380px;
+          margin-left: auto;
+          margin-right: auto;
+
+          .title {
+            text-align :center;
+          }
+
+          .image_group {
+            text-align :center;
+            .image {
+              width: 320px;
+              box-shadow: 0 0 8px gray;
+              transition:transform 0.3s;
+              &:hover {
+              transform:scale(1.05);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .other_function {
+      max-width: 350px;
+      margin-left: auto;
+      margin-right: auto;
+
+      .card {
+        transition:transform 0.3s;
+        &:hover {
+        transform:scale(1.05);
+        }
+      }
+    }
+  }
+}
+   
+@media only screen and (min-width:768px) and (max-width:1024px) {
+/*tablet用のcssを記述*/
+  .smoker_top {
+    .top_container {
+      text-align :center;
+      background-image: url("背景.jpg");
+      height: 350px;
+      background-size:cover;
+      opacity: 1;
+
+
+      .content {
+        .catch {
+          color: #fff;
+        }
+
+        .lead {
+          color: #fff;
+        }
+
+        .btn_group {
+          .btn_register {
+          }
+        }
+      }
+    }
+
+    .discription {
+      padding: 3rem 0;
+    }
+
+    .detail {
+      max-width: 1024px;
+      margin-left: auto;
+      margin-right: auto;
+      .style {
+        padding: 3rem 0;
+        .row {
+          ax-width: 1024px;
+          margin-left: auto;
+          margin-right: auto;
+
+          .image_group {
+            text-align :center;
+            .image {
+              width: 280px;
+              box-shadow: 0 0 8px gray;
+              transition:transform 0.3s;
+              &:hover {
+              transform:scale(1.05);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .other_function {
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+
+      .card {
+        transition:transform 0.3s;
+        &:hover {
+        transform:scale(1.05);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width:1025px) {
+/*pc用のcssを記述*/
+  .smoker_top {
+    .top_container {
+      text-align :center;
+      background-image: url("背景.jpg");
+      height: 350px;
+      background-size:cover;
+      opacity: 1;
+
+
+      .content {
+        .catch {
+          color: #fff;
+        }
+
+        .lead {
+          color: #fff;
+        }
+
+        .btn_group {
+          .btn_register {
+          }
+        }
+      }
+    }
+
+    .discription {
+      padding: 3rem 0;
+    }
+
+    .detail {
+      .style {
+        padding: 3rem 0;
+        .row {
+          max-width: 1200px;
+          margin-left: auto;
+          margin-right: auto;
+
+          .image {
+            width: 500px;
+            box-shadow: 0 0 8px gray;
+            transition:transform 0.3s;
+
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(40px);
+            transition: all 1s;
+
+            &:hover {
+            transform:scale(1.05);
+            }
+          }
+
+          .image.is-show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0px);
+          }
+        }
+      }
+    }
+
+    .other_function {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+
+      .card {
+        transition:transform 0.3s;
+        &:hover {
+        transform:scale(1.05);
+        }
+      }
+    }
+  }
+}
