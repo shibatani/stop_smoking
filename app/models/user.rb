@@ -36,7 +36,7 @@ class User < ApplicationRecord
   def frequency(continue_days)
     frequency = continue_days / self.days
     return frequency
-  end
+  end 
 
   def saved_money(frequency) 
     saved_money = self.boxes * 500 * frequency
@@ -51,5 +51,9 @@ class User < ApplicationRecord
   def lifespan(cigarettes)
     lifespan = cigarettes * 5
     return lifespan
+  end
+
+  def say_no_result
+    【検索結果はありませんでした】
   end
 end

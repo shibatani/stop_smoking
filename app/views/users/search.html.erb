@@ -10,20 +10,24 @@
   </div>
 
   <div class="display_user">
-    <% @users.each do |user| %>
-    <hr>
-    <div class="form-inline ml-2">
-      <strong class="mr-4">
-        <% if user.image? %>
-          <%= image_tag user.image.url, class: "icon" %>
-          <%= link_to user.name, user_path(user.id), class: "user_name" %>
-        <% else %>
-          <%= image_tag 'profile.png', class: "no_user_image" %>
-          <%= link_to user.name, user_path(user.id), class: "user_name" %>
-        <% end %>
-      </strong>
-    </div>
+    <% unless @users.empty? %>
+      <% @users.each do |user| %>
+      <hr>
+      <div class="form-inline ml-2">
+        <strong class="mr-4">
+          <% if user.image? %>
+            <%= image_tag user.image.url, class: "icon" %>
+            <%= link_to user.name, user_path(user.id), class: "user_name" %>
+          <% else %>
+            <%= image_tag 'profile.png', class: "no_user_image" %>
+            <%= link_to user.name, user_path(user.id), class: "user_name" %>
+          <% end %>
+        </strong>
+      </div>
+      <% end %>
+      <hr>
+    <% else %>
+      <p class="ml-3">検索結果はありませんでした</p>
     <% end %>
-    <hr>
   </div>
 </div>
