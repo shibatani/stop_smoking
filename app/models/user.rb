@@ -26,6 +26,8 @@ class User < ApplicationRecord
     end
   end
 
+  CIGARETTE_PRICE = 500
+
   def continue_days
     created_date = self.created_at.to_date 
     today = Date.current 
@@ -39,7 +41,7 @@ class User < ApplicationRecord
   end 
 
   def saved_money(frequency) 
-    saved_money = self.boxes * 500 * frequency
+    saved_money = self.boxes * CIGARETTE_PRICE * frequency
     return saved_money
   end
 

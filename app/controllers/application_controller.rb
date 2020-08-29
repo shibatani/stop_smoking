@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
     root_path # ログアウト後に遷移するpathを設定
   end
 
+  MAX_VIEW = 50
+  
   protected
   def configure_permitted_parameters
     # サインアップ時にnameのストロングパラメータを追加
