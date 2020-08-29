@@ -27,6 +27,7 @@ class User < ApplicationRecord
   end
 
   CIGARETTE_PRICE = 500
+  NUMBER_OF_CIGARETTES = 20
 
   def continue_days
     created_date = self.created_at.to_date 
@@ -46,7 +47,7 @@ class User < ApplicationRecord
   end
 
   def cigarettes(frequency)
-    cigarettes = self.boxes * 20 * frequency
+    cigarettes = self.boxes * NUMBER_OF_CIGARETTES * frequency
     return cigarettes
   end
 
