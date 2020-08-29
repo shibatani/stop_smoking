@@ -2,8 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :search]
 
   def index
-    @max_view = 50
-    @users = User.all.order('created_at').page(params[:page]).per(@max_view)
+    @users = User.all.order('created_at').page(params[:page]).per(MAX_VIEW)
   end
 
   def show
