@@ -52,8 +52,4 @@ class User < ApplicationRecord
     lifespan = cigarettes * 5
     return lifespan
   end
-
-  def say_no_result
-    【検索結果はありませんでした】
-  end
 end
