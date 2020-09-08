@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @cigarettes = @user.cigarettes(frequency)
     @lifespan = @user.lifespan(@cigarettes)
 
-    @posts = @user.posts
+    @posts = @user.posts.includes(:favorites)
     @favorite_posts = @user.favorite_posts
   end
 
