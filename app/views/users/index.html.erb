@@ -9,47 +9,16 @@
         </tr>
       </thead>
       <tbody>
-        <% last_running_days = 0 %>
-        <% last_rank_number = 0  %>
-        <% rank_number = 0 %>
         <% @users.each.with_index(1) do |user, i|%>
           <tr class="bg-white">
             <td>
-              <% @continue_days = user.continue_days %>
-              
               <% #同率順位の計算 %>
+              <% continue_days = user.continue_days %>
               <div class="caluculate_rank">
-                <% if i != 1 %>
-                  <% if last_running_days == @continue_days %>
-                    <% if rank_number == 1 %>
-                      <img src="/assets/王冠 金.jpeg">
-                    <% elsif rank_number == 2 %>
-                      <img src="/assets/王冠 銀.jpeg">
-                    <% elsif rank_number == 3 %>
-                      <img src="/assets/王冠 銅.jpeg">
-                    <% else %>
-                      <div class="number">
-                        <%= rank_number %>
-                      </div>
-                    <% end %>
-                  <% else %>
-                    <% last_rank_number += 1 %>
-                    <% rank_number += 1 %>
-                    <% if rank_number == 2 %>
-                      <img src="/assets/王冠 銀.jpeg">
-                    <% elsif rank_number == 3 %>
-                      <img src="/assets/王冠 銅.jpeg">
-                    <% else %>
-                      <div class="number">
-                        <h6><%= rank_number %></h6>
-                      </div>
-                    <% end %>
-                  <% end %>
-                <% else %>
-                  <% last_rank_number = i %>
-                  <% rank_number = i %>
-                  <img src="/assets/王冠 金.jpeg">
-                <% end %>
+                <div class="number">
+                  <%= caluculate_rank_number(i, continue_days) %>
+                </div>
+              </div>
             </td>
             <td>
               <% if user.image? %>
@@ -62,9 +31,9 @@
             </td>
             <td>
               <div class="text-center">
-                <h6><%= @continue_days %></h6>
+                <h6><%= continue_days %></h6>
               </div>
-              <% last_running_days = @continue_days  %>
+              <% calucalate_last_running_days(continue_days) %>
             </td>
           </tr>
         </div>

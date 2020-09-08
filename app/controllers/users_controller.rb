@@ -4,6 +4,9 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all.order('created_at').page(params[:page]).per(MAX_VIEW)
+    @last_running_days = 0 
+    @last_rank_number = 0  
+    @rank_number = 0 
   end
 
   def show

@@ -28,6 +28,7 @@ class User < ApplicationRecord
 
   CIGARETTE_PRICE = 500
   NUMBER_OF_CIGARETTES = 20
+  EXTENDED_LIFESPAN_CONSTANT = 5
 
   def continue_days
     created_date = self.created_at.to_date 
@@ -52,7 +53,7 @@ class User < ApplicationRecord
   end
 
   def lifespan(cigarettes)
-    lifespan = cigarettes * 5
+    lifespan = cigarettes * EXTENDED_LIFESPAN_CONSTANT
     return lifespan
   end
 end
