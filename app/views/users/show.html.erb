@@ -17,11 +17,7 @@
   </div>
   
   <div class="message">
-    <% if @user.days.present? && @user.boxes.present? %>
-      あなたはタバコを<strong><%= @user.days %></strong>日に1回,<strong><%= @user.boxes %></strong>箱買っていました。
-    <% else %>
-      タバコ購入頻度についてのデータがありません。
-    <% end %>
+    あなたはタバコを<strong><%= @user.days %></strong>日に1回,<strong><%= @user.boxes %></strong>箱買っていました。
   </div>
 
   <div class="start_date mb-2 ml-2" style="font-size: 0.8rem;">
@@ -35,11 +31,7 @@
       <div class="col-4 ml-2">
         <i class="far fa-money-bill-alt fa-2x"></i>
       </div>
-      <% if @user.days.present? && @user.boxes.present? %>
-        貯金した金額:<h1><%= @saved_money %></h1>円
-      <% else %>
-        貯金した金額:<h1>0</h1>円
-      <% end %>
+      貯金した金額:<h1><%= @saved_money %></h1>円
     </div>
   </div>
   <hr>
@@ -48,11 +40,7 @@
       <div class="col-4 ml-2">
         <i class="fas fa-smoking fa-2x"></i>
       </div>
-      <% if @user.days.present? && @user.boxes.present? %>
-        吸わなかったタバコ:<h1><%= @cigarettes %></h1>本
-      <% else %>
-        吸わなかったタバコ:<h1>0</h1>本
-      <% end %>
+      吸わなかったタバコ:<h1><%= @cigarettes %></h1>本
     </div>
   </div>
   <hr>
@@ -61,22 +49,12 @@
       <div class="col-4 ml-2">
         <i class="fas fa-heartbeat fa-2x"></i>
       </div>
-      <% if @user.days.present? && @user.boxes.present? %>
-        <% if @lifespan >= 1440 %> 
-          <% days = @lifespan / 1440 %>
-          <% remain = @lifespan - (1440 * days) %>
-          <% hour = remain / 60 %>
-          <% rest = remain % 60 %>
-          伸びた寿命:<h1><%= days %></h1>日<h1><%= hour %></h1>時間<h1><%= rest %></h1>分
-        <% elsif @lifespan >= 60 %>
-          <% hour = @lifespan / 60 %>
-          <% rest = @lifespan % 60 %>
-          伸びた寿命:<h1><%= hour %></h1>時間<h1><%= rest %></h1>分
-        <% else %>
-            伸びた寿命:<h1><%= @lifespan %></h1>分
-        <% end %>
+      <% if @lifespan >= 1440 %> 
+        伸びた寿命:<h1><%= @days %></h1>日<h1><%= @hours %></h1>時間<h1><%= @minutes %></h1>分
+      <% elsif @lifespan >= 60 %>
+        伸びた寿命:<h1><%= @hours %></h1>時間<h1><%= @minutes %></h1>分
       <% else %>
-        伸びた寿命:<h1>0</h1>分
+          伸びた寿命:<h1><%= @lifespan %></h1>分
       <% end %>
     </div>
   </div>

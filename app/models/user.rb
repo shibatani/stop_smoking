@@ -58,4 +58,37 @@ class User < ApplicationRecord
     lifespan = cigarettes * EXTENDED_LIFESPAN_CONSTANT
     return lifespan
   end
+
+  def caluculate_days(lifespan)
+    if lifespan >= 1440 
+      days = lifespan / 1440
+      return days
+    end
+  end
+
+  def caluculate_remain(lifespan, days)
+    if lifespan >= 1440 
+      remain = lifespan - (1440 * days) 
+    else
+      return remain
+    end
+  end
+
+  def caluculate_hours(lifespan, remain)
+    if lifespan >= 1440
+      hours = remain / 60
+    elsif lifespan >= 60
+      hours = lifespan / 60
+    end
+    return hours
+  end
+
+  def caluculate_minutes(lifespan, remain)
+    if lifespan >= 1440
+      minutes = remain % 60
+    elsif lifespan >= 60
+      minutes = lifespan % 60
+    end
+    return minutes
+  end
 end

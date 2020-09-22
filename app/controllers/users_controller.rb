@@ -17,6 +17,10 @@ class UsersController < ApplicationController
     @saved_money = @user.saved_money(frequency)
     @cigarettes = @user.cigarettes(frequency)
     @lifespan = @user.lifespan(@cigarettes)
+    @days = @user.caluculate_days(@lifespan)
+    remain = @user.caluculate_remain(@lifespan, @days)
+    @hours = @user.caluculate_hours(@lifespan, remain)
+    @minutes = @user.caluculate_minutes(@lifespan, remain)
 
     @posts = @user.posts.includes(:favorites)
     @favorite_posts = @user.favorite_posts
