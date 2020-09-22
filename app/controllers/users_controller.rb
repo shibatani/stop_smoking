@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :exists_user, only: [:show]
   before_action :correct_user, only: [:edit, :update]
   before_action :authenticate_user!, except: [:index, :search]
 
@@ -59,6 +60,13 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     if current_user != user
       redirect_to root_path, alert: "別のユーザのページに遷移できません。"
+    end
+  end
+
+  def exists_user
+    unless User.exists?(params[:id])
+    flash.now[:alert] = "ユーザーが存在しません。"
+    render template: "tops/index"
     end
   end
 end
