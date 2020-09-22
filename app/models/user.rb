@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   validates :name, presence: true 
   validates :word, length: { maximum: 200 } 
+  validates :days, :numericality => { :greater_than => 0 } 
+  validates :boxes, :numericality => { :greater_than => 0 } 
 
   has_many :posts
   has_many :favorites
