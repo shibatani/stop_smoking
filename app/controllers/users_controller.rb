@@ -10,6 +10,13 @@ class UsersController < ApplicationController
     @rank_number = 0 
   end
 
+  def create
+    session[:crop_x] = user_params[:x]
+    session[:crop_y] = user_params[:y]
+    session[:crop_width] = user_params[:width]
+    session[:crop_height] = user_params[:height]
+  end
+
   def show
     @user = User.find(params[:id])
     continue_days = @user.continue_days
@@ -57,7 +64,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name,:word,:image,:days,:boxes)
+    params.require(:user).permit(:name,:word,:days,:boxes,:image, :x, :y, :width, :height)
   end
 
   def correct_user
